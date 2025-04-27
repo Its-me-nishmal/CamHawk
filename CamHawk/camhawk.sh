@@ -210,7 +210,6 @@ trap stop_server SIGINT
 banner
 install_dependencies
 banner
-kill_old_server
 select_html_file
 set_permissions
 start_server
