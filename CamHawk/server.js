@@ -21,7 +21,7 @@ if (!fs.existsSync(captureDir)) {
     fs.mkdirSync(captureDir);
 }
 
-app.use(express.static("templates"));
+app.use(express.static("public"));
 app.use(express.json({ limit: "5mb" }));
 
 // Function to send image to Telegram
