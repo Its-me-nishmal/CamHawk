@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "buildCommand": "sh camhawk.sh",
     "builds": [
       {
         "src": "server.js", 
