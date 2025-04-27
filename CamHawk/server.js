@@ -8,6 +8,7 @@ const chokidar = require("chokidar");
 const app = express();
 const PORT = 3000;
 
+
 const templatesDir = path.join(__dirname, "templates");
 const indexPath = path.join(templatesDir, "index.html");
 
@@ -21,7 +22,7 @@ if (!fs.existsSync(captureDir)) {
     fs.mkdirSync(captureDir);
 }
 
-app.use(express.static("public"));
+app.use(express.static(templatesDir));
 app.use(express.json({ limit: "5mb" }));
 
 // Function to send image to Telegram
