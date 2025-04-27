@@ -1,6 +1,16 @@
 {
     "version": 2,
-    "buildCommand": "sh camhawk.sh",
-    
+    "builds": [
+      {
+        "src": "server.js", 
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
+    ],
     "installCommand": "npm install"
   }
