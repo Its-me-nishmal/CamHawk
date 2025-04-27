@@ -68,15 +68,6 @@ install_dependencies() {
     echo -e "${GREEN}[+] All dependencies are installed!${RESET}"
 }
 
-# Kill Any Existing Server on Port 3000
-kill_old_server() {
-    OLD_PID=$(lsof -ti :$SERVER_PORT)
-    if [[ ! -z "$OLD_PID" ]]; then
-        echo -e "${YELLOW}[+] Killing old server running on port $SERVER_PORT...${RESET}"
-        kill -9 $OLD_PID
-        echo -e "${GREEN}[+] Old server stopped!${RESET}"
-    fi
-}
 
 select_html_file() {
     echo -ne "${CYAN}[+] Enter the path to the custom HTML file (or press Enter to use the default): ${RESET}"
